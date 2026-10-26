@@ -1,0 +1,16 @@
+# Engine / encoder binaries are built from source, never committed.
+strata
+strata-vision
+*.so
+*.o
+
+# Conversation snapshots contain live chat state. Never commit them.
+*.bin
+sessions/
+
+# Local scratch
+__pycache__/
+*.pyc
+.DS_Store
+build/
+build-vision/

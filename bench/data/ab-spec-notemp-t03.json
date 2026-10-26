@@ -1,0 +1,23 @@
+{
+ "label": "notemp-t03",
+ "results": {
+  "code": {
+   "decode": 53.2,
+   "acc": 84,
+   "out": 1024,
+   "wall": 24.6
+  },
+  "config": {
+   "decode": 59.4,
+   "acc": 88,
+   "out": 1024,
+   "wall": 21.5
+  },
+  "prose": {
+   "decode": 44.7,
+   "acc": 77,
+   "out": 1024,
+   "wall": 28.2
+  }
+ }
+}

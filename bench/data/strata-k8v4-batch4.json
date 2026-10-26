@@ -1,0 +1,31 @@
+{
+ "label": "k8v4-batch4",
+ "model": "R9700-Qwen3.8-Flash-Next-iQ3xxs-HIP",
+ "ts": "2026-10-26 13:28:42",
+ "prefill": {
+  "22000": {
+   "prompt_n": 15300,
+   "pp": 1273,
+   "ttft_s": 0.0
+  },
+  "80000": {
+   "prompt_n": 55465,
+   "pp": 1449,
+   "ttft_s": 0.0
+  }
+ },
+ "decode": [
+  {
+   "temp": 0.0,
+   "mean": 42.0
+  },
+  {
+   "temp": 0.7,
+   "mean": 46.7
+  }
+ ],
+ "conc": {
+  "n": 4,
+  "agg": 41.7
+ }
+}

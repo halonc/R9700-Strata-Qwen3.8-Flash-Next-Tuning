@@ -1,0 +1,13 @@
+diff -ru a/tools/vision/CMakeLists.txt b/tools/vision/CMakeLists.txt
+--- a/tools/vision/CMakeLists.txt	2026-10-12 00:19:59.000000000 +1000
++++ b/tools/vision/CMakeLists.txt	2026-10-26 23:15:32.299377089 +1000
+@@ -52,6 +52,9 @@
+ endif()
+ set(GGML_BACKEND_DL OFF CACHE BOOL "" FORCE)
+ set(GGML_CUDA ${STRATA_VISION_CUDA} CACHE BOOL "" FORCE)
++set(GGML_HIP ON CACHE BOOL "" FORCE)
++set(AMDGPU_TARGETS gfx1201 CACHE STRING "" FORCE)
++set(GPU_TARGETS gfx1201 CACHE STRING "" FORCE)
+ 
+ add_subdirectory(${LLAMA_DIR} llama EXCLUDE_FROM_ALL)
+ 

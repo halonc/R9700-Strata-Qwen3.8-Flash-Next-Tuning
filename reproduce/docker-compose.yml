@@ -1,0 +1,22 @@
+name: strata-r9700
+services:
+  strata:
+    image: strata-hip10:prod
+    container_name: strata-r9700
+    user: "1000:1000"
+    network_mode: host
+    restart: unless-stopped
+    devices: ["/dev/kfd", "/dev/dri"]
+    group_add: ["993", "44"]          # Ubuntu: render(993) / video(44)
+    security_opt: ["seccomp=unconfined"]
+    ulimits:
+      memlock: -1
+    environment:
+      - LD_LIBRARY_PATH=/opt/rocm/lib:/opt/rocm/lib/llvm/lib
+      - AUTOSAVE_INTERVAL=900
+      - AUTOSAVE_KEEP=4
+      - AUTOSAVE_RESTORE=1
+    volumes:
+      - ${STRATA_MODEL_DIR:-./models}:/models:ro
+      - ${STRATA_CONFIG_DIR:-./config}:/config:ro
+      - ${STRATA_SESSION_DIR:-./sessions}:/sessions

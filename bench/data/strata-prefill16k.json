@@ -1,0 +1,27 @@
+{
+ "label": "prefill16k",
+ "model": "R9700-Qwen3.8-Flash-Next-iQ3xxs-HIP",
+ "ts": "2026-10-26 13:02:28",
+ "prefill": {
+  "22000": {
+   "prompt_n": 15290,
+   "pp": 1928,
+   "ttft_s": 0.0
+  },
+  "80000": {
+   "prompt_n": 55420,
+   "pp": 2263,
+   "ttft_s": 0.0
+  }
+ },
+ "decode": [
+  {
+   "temp": 0.0,
+   "mean": 50.3
+  },
+  {
+   "temp": 0.7,
+   "mean": 54.2
+  }
+ ]
+}

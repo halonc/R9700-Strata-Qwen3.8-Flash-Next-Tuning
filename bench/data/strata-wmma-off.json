@@ -1,0 +1,27 @@
+{
+ "label": "wmma-off",
+ "model": "R9700-Qwen3.8-Flash-Next-iQ3xxs-HIP",
+ "ts": "2026-10-26 13:00:07",
+ "prefill": {
+  "22000": {
+   "prompt_n": 15255,
+   "pp": 1709,
+   "ttft_s": 0.0
+  },
+  "80000": {
+   "prompt_n": 55419,
+   "pp": 2187,
+   "ttft_s": 0.0
+  }
+ },
+ "decode": [
+  {
+   "temp": 0.0,
+   "mean": 52.5
+  },
+  {
+   "temp": 0.7,
+   "mean": 47.7
+  }
+ ]
+}

@@ -1,0 +1,27 @@
+{
+ "label": "B-arm",
+ "model": "R9700-Qwen3.8-Flash-Next-iQ3xxs-HIP",
+ "ts": "2026-10-26 18:39:46",
+ "prefill": {
+  "22000": {
+   "prompt_n": 15275,
+   "pp": 1774,
+   "ttft_s": 0.0
+  },
+  "80000": {
+   "prompt_n": 55529,
+   "pp": 1778,
+   "ttft_s": 0.0
+  }
+ },
+ "decode": [
+  {
+   "temp": 0.0,
+   "mean": 122.0
+  },
+  {
+   "temp": 0.7,
+   "mean": 82.8
+  }
+ ]
+}

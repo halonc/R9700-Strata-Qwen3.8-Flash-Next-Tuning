@@ -1,0 +1,23 @@
+{
+ "label": "T4-temp03",
+ "results": {
+  "code": {
+   "decode": 43.4,
+   "acc": 68,
+   "out": 1024,
+   "wall": 27.2
+  },
+  "config": {
+   "decode": 46.0,
+   "acc": 67,
+   "out": 1024,
+   "wall": 26.7
+  },
+  "prose": {
+   "decode": 91.0,
+   "acc": 82,
+   "out": 1024,
+   "wall": 16.6
+  }
+ }
+}

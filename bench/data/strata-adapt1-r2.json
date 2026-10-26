@@ -1,0 +1,31 @@
+{
+ "label": "adapt1-r2",
+ "model": "R9700-Qwen3.8-Flash-Next-iQ3xxs-HIP",
+ "ts": "2026-10-26 14:01:23",
+ "prefill": {
+  "22000": {
+   "prompt_n": 15295,
+   "pp": 1940,
+   "ttft_s": 0.0
+  },
+  "80000": {
+   "prompt_n": 55547,
+   "pp": 2064,
+   "ttft_s": 0.0
+  }
+ },
+ "decode": [
+  {
+   "temp": 0.0,
+   "mean": 119.5
+  },
+  {
+   "temp": 0.7,
+   "mean": 82.5
+  }
+ ],
+ "conc": {
+  "n": 4,
+  "agg": 72.3
+ }
+}

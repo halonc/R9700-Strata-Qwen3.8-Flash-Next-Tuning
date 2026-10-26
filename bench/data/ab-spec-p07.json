@@ -1,0 +1,23 @@
+{
+ "label": "p07",
+ "results": {
+  "code": {
+   "decode": 42.3,
+   "acc": 74,
+   "out": 1024,
+   "wall": 30.0
+  },
+  "config": {
+   "decode": 45.7,
+   "acc": 76,
+   "out": 1024,
+   "wall": 27.5
+  },
+  "prose": {
+   "decode": 42.5,
+   "acc": 77,
+   "out": 1024,
+   "wall": 29.3
+  }
+ }
+}

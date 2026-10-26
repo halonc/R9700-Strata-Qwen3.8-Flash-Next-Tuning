@@ -1,0 +1,31 @@
+{
+ "label": "int8-batch2",
+ "model": "R9700-Qwen3.8-Flash-Next-iQ3xxs-HIP",
+ "ts": "2026-10-26 13:34:31",
+ "prefill": {
+  "22000": {
+   "prompt_n": 15250,
+   "pp": 1662,
+   "ttft_s": 0.0
+  },
+  "80000": {
+   "prompt_n": 55458,
+   "pp": 2134,
+   "ttft_s": 0.0
+  }
+ },
+ "decode": [
+  {
+   "temp": 0.0,
+   "mean": 44.0
+  },
+  {
+   "temp": 0.7,
+   "mean": 48.7
+  }
+ ],
+ "conc": {
+  "n": 4,
+  "agg": 35.3
+ }
+}

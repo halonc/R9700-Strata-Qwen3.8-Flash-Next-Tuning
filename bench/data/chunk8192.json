@@ -1,0 +1,48 @@
+{
+ "label": "chunk8192",
+ "model": "R9700-Qwen3.8-FlashN-FP8iQ4r",
+ "ts": "2026-10-26 08:47:08",
+ "prefill": {
+  "4000": {
+   "prompt_tokens": 4013,
+   "ttft_s": 4.05,
+   "prefill_tps": 990
+  },
+  "16000": {
+   "prompt_tokens": 16034,
+   "ttft_s": 16.34,
+   "prefill_tps": 981
+  },
+  "64000": {
+   "prompt_tokens": 63972,
+   "ttft_s": 67.34,
+   "prefill_tps": 950
+  }
+ },
+ "decode_tps": [
+  13.7,
+  27.6
+ ],
+ "conc2": {
+  "agg_tps": 30.1,
+  "dur_ratio": 0.9,
+  "tokens": 119
+ },
+ "conc4": {
+  "agg_tps": 48.9,
+  "dur_ratio": 0.97,
+  "tokens": 234
+ },
+ "metrics": {
+  "radiance:draft_acceptance_ratio": 0.4276393949985504,
+  "radiance:decode_tokens_per_second": 126.17413330078125,
+  "radiance:prefill_tokens_per_second": 6.710361480712891,
+  "radiance:linear_prefix_cache_hit_rate": 0.0,
+  "vllm:gpu_prefix_cache_hit_rate": 0.0020785110536962748,
+  "radiance:decode_step_seconds_recent": 0.044120898,
+  "radiance:engine_steps_decode_total": 341.0,
+  "radiance:prefix_cache_evictions_total": 0.0,
+  "radiance:num_requests_preempted": 0.0,
+  "radiance:http_queue_depth": 0.0
+ }
+}

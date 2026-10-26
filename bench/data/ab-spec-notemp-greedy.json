@@ -1,0 +1,23 @@
+{
+ "label": "notemp-greedy",
+ "results": {
+  "code": {
+   "decode": 47.6,
+   "acc": 70,
+   "out": 1024,
+   "wall": 27.2
+  },
+  "config": {
+   "decode": 53.3,
+   "acc": 75,
+   "out": 1024,
+   "wall": 24.4
+  },
+  "prose": {
+   "decode": 49.7,
+   "acc": 70,
+   "out": 1024,
+   "wall": 25.9
+  }
+ }
+}

@@ -1,0 +1,157 @@
+{
+ "4": {
+  "boot_s": 80,
+  "rows": [
+   {
+    "tg": 104.2,
+    "ms_tok": 9.6,
+    "acc": 87,
+    "out": 1024,
+    "drafts": 849,
+    "accepted": 736
+   },
+   {
+    "tg": 107.8,
+    "ms_tok": 9.28,
+    "acc": 89,
+    "out": 1024,
+    "drafts": 839,
+    "accepted": 743
+   },
+   {
+    "tg": 87.6,
+    "ms_tok": 11.41,
+    "acc": 82,
+    "out": 1024,
+    "drafts": 793,
+    "accepted": 652
+   }
+  ],
+  "avg_tg": 99.9,
+  "avg_acc": 86
+ },
+ "5": {
+  "boot_s": 80,
+  "rows": [
+   {
+    "tg": 66.2,
+    "ms_tok": 15.11,
+    "acc": 69,
+    "out": 1024,
+    "drafts": 708,
+    "accepted": 491
+   },
+   {
+    "tg": 65.7,
+    "ms_tok": 15.21,
+    "acc": 68,
+    "out": 1024,
+    "drafts": 719,
+    "accepted": 491
+   },
+   {
+    "tg": 88.8,
+    "ms_tok": 11.26,
+    "acc": 79,
+    "out": 1024,
+    "drafts": 848,
+    "accepted": 669
+   }
+  ],
+  "avg_tg": 73.6,
+  "avg_acc": 72
+ },
+ "6": {
+  "boot_s": 80,
+  "rows": [
+   {
+    "tg": 99.9,
+    "ms_tok": 10.01,
+    "acc": 70,
+    "out": 1024,
+    "drafts": 1109,
+    "accepted": 777
+   },
+   {
+    "tg": 87.2,
+    "ms_tok": 11.47,
+    "acc": 74,
+    "out": 1024,
+    "drafts": 918,
+    "accepted": 682
+   },
+   {
+    "tg": 104.9,
+    "ms_tok": 9.53,
+    "acc": 76,
+    "out": 1024,
+    "drafts": 1023,
+    "accepted": 781
+   }
+  ],
+  "avg_tg": 97.3,
+  "avg_acc": 73
+ },
+ "7": {
+  "boot_s": 80,
+  "rows": [
+   {
+    "tg": 71.4,
+    "ms_tok": 14.0,
+    "acc": 66,
+    "out": 1024,
+    "drafts": 897,
+    "accepted": 588
+   },
+   {
+    "tg": 100.6,
+    "ms_tok": 9.94,
+    "acc": 74,
+    "out": 1024,
+    "drafts": 1084,
+    "accepted": 800
+   },
+   {
+    "tg": 99.0,
+    "ms_tok": 10.11,
+    "acc": 72,
+    "out": 1024,
+    "drafts": 1100,
+    "accepted": 795
+   }
+  ],
+  "avg_tg": 90.3,
+  "avg_acc": 71
+ },
+ "8": {
+  "boot_s": 80,
+  "rows": [
+   {
+    "tg": 82.5,
+    "ms_tok": 12.12,
+    "acc": 55,
+    "out": 1024,
+    "drafts": 1388,
+    "accepted": 770
+   },
+   {
+    "tg": 76.0,
+    "ms_tok": 13.16,
+    "acc": 62,
+    "out": 1024,
+    "drafts": 1046,
+    "accepted": 652
+   },
+   {
+    "tg": 83.4,
+    "ms_tok": 11.98,
+    "acc": 67,
+    "out": 1024,
+    "drafts": 1044,
+    "accepted": 695
+   }
+  ],
+  "avg_tg": 80.6,
+  "avg_acc": 61
+ }
+}

@@ -1,0 +1,68 @@
+[
+ {
+  "target": 4000,
+  "prompt_n": 4043,
+  "ttft_s": 2.5,
+  "pp": 1602,
+  "tg": 100.7,
+  "out": 1024,
+  "acc": 85,
+  "cached": 0,
+  "wall": 12.7
+ },
+ {
+  "target": 8000,
+  "prompt_n": 8021,
+  "ttft_s": 3.9,
+  "pp": 2074,
+  "tg": 103.5,
+  "out": 1024,
+  "acc": 87,
+  "cached": 0,
+  "wall": 13.8
+ },
+ {
+  "target": 16000,
+  "prompt_n": 15996,
+  "ttft_s": 7.5,
+  "pp": 2136,
+  "tg": 103.5,
+  "out": 1024,
+  "acc": 93,
+  "cached": 0,
+  "wall": 17.4
+ },
+ {
+  "target": 32000,
+  "prompt_n": 31975,
+  "ttft_s": 15.2,
+  "pp": 2106,
+  "tg": 77.5,
+  "out": 1024,
+  "acc": 81,
+  "cached": 0,
+  "wall": 28.4
+ },
+ {
+  "target": 64000,
+  "prompt_n": 63795,
+  "ttft_s": 31.8,
+  "pp": 2007,
+  "tg": 87.1,
+  "out": 1024,
+  "acc": 82,
+  "cached": 0,
+  "wall": 43.6
+ },
+ {
+  "target": 128000,
+  "prompt_n": 127679,
+  "ttft_s": 70.8,
+  "pp": 1802,
+  "tg": 87.2,
+  "out": 1024,
+  "acc": 84,
+  "cached": 0,
+  "wall": 82.7
+ }
+]

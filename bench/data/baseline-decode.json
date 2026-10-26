@@ -1,0 +1,38 @@
+{
+ "label": "baseline-decode",
+ "model": "qwen4exp",
+ "ts": "2026-10-26 08:38:27",
+ "prefill": {
+  "14000": {
+   "prompt_tokens": 9688,
+   "ttft_s": 9.45,
+   "prefill_tps": 1025
+  }
+ },
+ "decode_tps": [
+  15.4,
+  34169.5
+ ],
+ "conc2": {
+  "agg_tps": 10.6,
+  "dur_ratio": 0.0,
+  "tokens": 53
+ },
+ "conc4": {
+  "agg_tps": 12.6,
+  "dur_ratio": 0.0,
+  "tokens": 111
+ },
+ "metrics": {
+  "radiance:draft_acceptance_ratio": 0.5844398140907288,
+  "radiance:decode_tokens_per_second": 49.73454284667969,
+  "radiance:prefill_tokens_per_second": 4.939385414123535,
+  "radiance:linear_prefix_cache_hit_rate": 0.7715687155723572,
+  "vllm:gpu_prefix_cache_hit_rate": 0.7980296015739441,
+  "radiance:decode_step_seconds_recent": 0.084403393,
+  "radiance:engine_steps_decode_total": 13372.0,
+  "radiance:prefix_cache_evictions_total": 53505.0,
+  "radiance:num_requests_preempted": 0.0,
+  "radiance:http_queue_depth": 0.0
+ }
+}

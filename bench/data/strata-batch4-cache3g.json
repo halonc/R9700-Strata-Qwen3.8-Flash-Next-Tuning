@@ -1,0 +1,31 @@
+{
+ "label": "batch4-cache3g",
+ "model": "R9700-Qwen3.8-Flash-Next-iQ3xxs-HIP",
+ "ts": "2026-10-26 13:23:10",
+ "prefill": {
+  "22000": {
+   "prompt_n": 15267,
+   "pp": 1647,
+   "ttft_s": 0.0
+  },
+  "80000": {
+   "prompt_n": 55457,
+   "pp": 2070,
+   "ttft_s": 0.0
+  }
+ },
+ "decode": [
+  {
+   "temp": 0.0,
+   "mean": 44.8
+  },
+  {
+   "temp": 0.7,
+   "mean": 46.7
+  }
+ ],
+ "conc": {
+  "n": 4,
+  "agg": 41.8
+ }
+}

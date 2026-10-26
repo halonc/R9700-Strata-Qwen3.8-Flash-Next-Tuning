@@ -1,0 +1,48 @@
+{
+ "label": "baseline",
+ "model": "qwen4exp",
+ "ts": "2026-10-26 08:39:53",
+ "prefill": {
+  "4000": {
+   "prompt_tokens": 4014,
+   "ttft_s": 3.03,
+   "prefill_tps": 1324
+  },
+  "16000": {
+   "prompt_tokens": 15980,
+   "ttft_s": 13.03,
+   "prefill_tps": 1226
+  },
+  "64000": {
+   "prompt_tokens": 64027,
+   "ttft_s": 49.23,
+   "prefill_tps": 1301
+  }
+ },
+ "decode_tps": [
+  14.2,
+  21.5
+ ],
+ "conc2": {
+  "agg_tps": 24.2,
+  "dur_ratio": 0.91,
+  "tokens": 115
+ },
+ "conc4": {
+  "agg_tps": 33.6,
+  "dur_ratio": 0.86,
+  "tokens": 221
+ },
+ "metrics": {
+  "radiance:draft_acceptance_ratio": 0.5790328979492188,
+  "radiance:decode_tokens_per_second": 76.77385711669922,
+  "radiance:prefill_tokens_per_second": 1.075573444366455,
+  "radiance:linear_prefix_cache_hit_rate": 0.7528888583183289,
+  "vllm:gpu_prefix_cache_hit_rate": 0.778760552406311,
+  "radiance:decode_step_seconds_recent": 0.053933877,
+  "radiance:engine_steps_decode_total": 13715.0,
+  "radiance:prefix_cache_evictions_total": 74945.0,
+  "radiance:num_requests_preempted": 0.0,
+  "radiance:http_queue_depth": 0.0
+ }
+}

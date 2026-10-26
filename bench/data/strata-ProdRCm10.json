@@ -1,0 +1,32 @@
+{
+ "label": "ProdRCm10",
+ "model": "R9700-Qwen3.8-Flash-Next-iQ3xxs-HIP",
+ "ts": "2026-10-26 23:22:46",
+ "prefill": {
+  "4000": {
+   "prompt_n": 2824,
+   "pp": 1187,
+   "ttft_s": 0.0
+  },
+  "16000": {
+   "prompt_n": 11085,
+   "pp": 1772,
+   "ttft_s": 0.0
+  },
+  "64000": {
+   "prompt_n": 44380,
+   "pp": 1916,
+   "ttft_s": 0.0
+  }
+ },
+ "decode": [
+  {
+   "temp": 0.0,
+   "mean": 96.7
+  },
+  {
+   "temp": 0.7,
+   "mean": 97.8
+  }
+ ]
+}

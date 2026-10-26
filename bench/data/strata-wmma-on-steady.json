@@ -1,0 +1,36 @@
+{
+ "label": "wmma-on-steady",
+ "model": "R9700-Qwen3.8-Flash-Next-iQ3xxs-HIP",
+ "ts": "2026-10-26 12:57:10",
+ "prefill": {
+  "6000": {
+   "prompt_n": 4206,
+   "pp": 872,
+   "ttft_s": 0.0
+  },
+  "22000": {
+   "prompt_n": 15293,
+   "pp": 2336,
+   "ttft_s": 0.0
+  },
+  "80000": {
+   "prompt_n": 55451,
+   "pp": 2250,
+   "ttft_s": 0.0
+  }
+ },
+ "decode": [
+  {
+   "temp": 0.0,
+   "mean": 59.8
+  },
+  {
+   "temp": 0.7,
+   "mean": 62.6
+  }
+ ],
+ "conc": {
+  "n": 4,
+  "agg": 41.5
+ }
+}
