@@ -16,6 +16,18 @@ JSON in [`bench/data/`](bench/data).
 
 ---
 
+## The day at a glance
+
+![Three builds of Strata on one R9700: prefill 1,747 then 2,232 then 1,940 tok/s; decode 58.8 then 73.2 then 93.2 tok/s, peak 108](assets/performance-comparison.png)
+
+Three builds of the **same engine on the same card**. All three already ran `--adapt-every 1` and
+`STRATA_HIP_WMMA=1`, so only two things differ between them: the hipBLASLt tuning table, and the
+ROCm version. The tuning table is the prefill win; the ROCm 10.1 container is the decode win.
+For reference, the morning starting point on a different engine — same card, same window — was
+1,300 prefill and 57–63 decode.
+
+---
+
 ## The numbers
 
 Final state (ROCm 10.1 container, `--spec 4`, `--adapt-every 1`, `sampling.temperature 0.3`,
@@ -28,8 +40,8 @@ Final state (ROCm 10.1 container, `--spec 4`, `--adapt-every 1`, `sampling.tempe
 | Prefill | **1,900–2,100 tok/s** at 16–64K context, **1,800** at 128K, **1,534** at 230K |
 | Context window | **262,144** configured; a ~256K prompt is **rejected (HTTP 400)**, so the usable ceiling is ~240–245K |
 | Image request | **3.8 s** with the HIP image encoder (14–16 s with the CPU encoder) |
-| Cross-conversation cache | 8 slots / 6 GiB RAM: cold 4.1 s → **hot 0.54 s**, 8/8 hits |
-| Session save / restore | 237 MB in **2.6 s** / back in **0.4 s**, survives a container restart |
+| Cross-conversation cache | **12 slots / 12 GiB** RAM (raised 2026-10-27 from 8 slots / 6 GiB): cold 4.1 s → **hot 0.54 s**, 8/8 hits measured at the 8-slot setting |
+| Session save / restore | 237 MB in **2.6 s** / back in **0.4 s**, survives a container restart. The snapshot is now **2.28 GB** (see [FINDINGS §6](docs/FINDINGS.md)) |
 | Cold start to first token available | **85 s** |
 
 Against the starting point of the same day (a different engine, same card, same window):
@@ -80,8 +92,8 @@ The last row is a trade, not a win: it buys determinism for engineering work, no
 --max-context 262144      --kv int8 --kv-resident 32768
 --adapt-every 1           --expert-cache auto
 --pool-workers 15         --vram-reserve-mib 1024   --pcie-frac 0
---conversation-cache-mib 6144 --conversation-cache-slots 8
---conversation-cache-min-tokens 4096 --conversation-cache-min-free-mib 2048
+--conversation-cache-mib 12288 --conversation-cache-slots 12
+--conversation-cache-min-tokens 4096 --conversation-cache-min-free-mib 3072
 --prompt-cache-every 4096 --prompt-cache-tail
 --vision
 ```

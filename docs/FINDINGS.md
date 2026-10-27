@@ -138,8 +138,9 @@ decode drop is attention cost plus KV streaming (Strata keeps only the most-read
 
 Two different mechanisms; both measured.
 
-**RAM conversation cache** (`--conversation-cache-mib 6144 --conversation-cache-slots 8
---conversation-cache-min-tokens 4096`), 8 conversations of ~6.4K tokens:
+**RAM conversation cache**, measured at `--conversation-cache-mib 6144
+--conversation-cache-slots 8 --conversation-cache-min-tokens 4096`, 8 conversations of ~6.4K
+tokens (the setting has since been raised — see the follow-up below):
 
 | Pass | TTFT | Cached tokens |
 |---|---|---|
@@ -150,6 +151,28 @@ Two different mechanisms; both measured.
 Matching rule, established by controlled probe: a snapshot is reused **only if the new prompt is
 an exact continuation of the parked state, including the assistant's answer**. Same opening with a
 different trailing question → `cached=0`, full re-read.
+
+**Follow-up, 2026-10-27: the cache was raised to 12 slots / 12 GiB**
+(`--conversation-cache-min-free-mib` 2048 → 3072), with a 12-conversation multi-turn probe
+(`bench/conv12.py`). Engine log from that day:
+
+| Log line | Reading |
+|---|---|
+| `parked 135513 tokens in 164.8 ms` | parking a 135K-token window costs **0.16 s** |
+| `parked 133858 tokens in 539.5 ms` | worst case seen: **0.54 s** |
+| `parked=4 bytes=10988839548 evictions=17` | **4 conversations parked, 11.0 GB of the 12 GiB budget** |
+| `restored 20640 tokens (checkpoint) in 93.5 ms` | checkpoint restore is **0.09–0.42 s** |
+| `skip parking (192 tokens, below the 4096 minimum)` | the `min-tokens` floor is enforced |
+
+Host memory with the 12 GiB cache in place: 72 GiB total, container resident **58.0 GiB (79.9%)**,
+**13 GiB available**. That is the cost of the bigger cache — the 8-slot setting left roughly
+16–20 GB free.
+
+**Consequence nobody predicted: the session snapshot grew 10×.** The autosave file went from
+237 MB to **2.28 GB** per copy, because the parked conversations are part of what slot 0 saves.
+`AUTOSAVE_KEEP` was therefore cut from 4 to 2 (4 × 2.28 GB is 9.1 GB of rotating disk for no
+extra safety). The 2.6 s save / 0.4 s restore figures above were measured on a 237 MB snapshot
+and have **not** been re-measured at 2.28 GB — expect roughly 10× on the save side.
 
 **Session files** (`/slots/0?action=save|restore`, requires batch off):
 

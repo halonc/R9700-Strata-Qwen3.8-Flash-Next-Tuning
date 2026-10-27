@@ -218,3 +218,19 @@ Still open, honestly:
 - `--batch` and session save/restore remain mutually exclusive in v0.1.43;
 - the tuning table that gives +28% belongs to ROCm 7.2.4, and the build that gives decode 100
   belongs to ROCm 10.1. We have not found a version that gives both.
+
+## 16. Follow-up the next morning (2026-10-27)
+
+Three changes after the record above was written, all small, one of them with a surprise:
+
+1. **Conversation cache raised 8 slots / 6 GiB → 12 slots / 12 GiB**, `min-free` 2048 → 3072,
+   driven by real multi-turn usage rather than by a benchmark. Log evidence and the 12-conversation
+   probe are in [FINDINGS.md](FINDINGS.md) §6; the probe script is `bench/conv12.py`.
+2. **The surprise:** the autosave snapshot went from 237 MB to **2.28 GB**, because parked
+   conversations are carried in what slot 0 saves. `AUTOSAVE_KEEP` dropped 4 → 2 for that reason
+   alone. Free RAM fell from ~16–20 GB to **13 GiB**.
+3. **`python3-pil` added to the image.** Without Pillow the server refuses non-JPEG image input
+   with `this image format needs Pillow`; a WebP request failed until it was installed. It is a
+   lazy import inside the request handler, so installing it into a running container takes effect
+   without a restart — verified with a WebP request that then answered correctly (73 prompt tokens,
+   1.78 s prefill).

@@ -65,8 +65,10 @@ per decode step.
 `--adapt-every 1` keeps the hot experts in VRAM (measured hit rate 100%) and the rest is computed
 where the data already is.
 
-**Memory cost:** ~40 GiB of anonymous memory plus page cache, leaving **~16–20 GB** free — enough
-for a 6 GiB / 8-slot conversation cache and for SSD session files.
+**Memory cost:** ~40 GiB of anonymous memory plus page cache. With the original 6 GiB / 8-slot
+conversation cache that left **~16–20 GB** free; with the current 12 GiB / 12-slot cache the
+container is resident at **58.0 GiB of 72 GiB (79.9%)** and **13 GiB** is available. Enough for
+SSD session files, but the headroom is now the thing to watch.
 
 ---
 

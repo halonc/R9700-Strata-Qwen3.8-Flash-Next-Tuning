@@ -14,6 +14,16 @@ Radeon AI PRO R9700** 上跑 **Qwen3.8-Flash-Next 176B MoE 的 IQ3_XXS 量化**�
 
 ---
 
+## 一天的总览
+
+![同一张 R9700 上同一引擎的三次构建：prefill 1,747 / 2,232 / 1,940 tok/s；decode 58.8 / 73.2 / 93.2 tok/s，峰值 108](assets/performance-comparison.png)
+
+图上三段是**同一张卡上的同一个引擎**。三段都已经开了 `--adapt-every 1` 和 `STRATA_HIP_WMMA=1`，
+所以它们之间只有两件事不同：hipBLASLt 调优表，以及 ROCm 版本。调优表赢的是 prefill，ROCm 10.1
+容器赢的是 decode。作为参照：当天早上用另一个引擎、同一张卡同一窗口，是 prefill 1,300、decode 57–63。
+
+---
+
 ## 结果
 
 最终状态（ROCm 10.1 容器、`--spec 4`、`--adapt-every 1`、`sampling.temperature 0.3`、
@@ -25,8 +35,8 @@ Radeon AI PRO R9700** 上跑 **Qwen3.8-Flash-Next 176B MoE 的 IQ3_XXS 量化**�
 | prefill | 16–64K 上下文 **1,900–2,100 tok/s**，128K **1,800**，230K **1,534** |
 | 上下文窗口 | 配置 **262,144**；约 256K 的 prompt 会被**直接拒绝（HTTP 400）**，实用上限约 240–245K |
 | 识图 | HIP 图像编码器 **3.8 s/张**（CPU 编码器 14–16 s） |
-| 跨对话缓存 | RAM 8 槽 / 6 GiB：冷启 4.1 s → **热态 0.54 s**，8/8 命中 |
-| session 存 / 取 | 237 MB 存 **2.6 s**、取回 **0.4 s**，容器重启后仍在 |
+| 跨对话缓存 | RAM **12 槽 / 12 GiB**（2026-10-27 由 8 槽 / 6 GiB 上调）：冷启 4.1 s → **热态 0.54 s**，8/8 命中是在 8 槽那档测的 |
+| session 存 / 取 | 237 MB 存 **2.6 s**、取回 **0.4 s**，容器重启后仍在。快照现在是 **2.28 GB**（见 [FINDINGS 第 6 节](docs/FINDINGS.md)） |
 | 冷启动到可出首 token | **85 s** |
 
 对比当天早上的起点（同一张卡、同一窗口、另一个引擎）：prefill 1,300 → **1,900–2,230**，
@@ -74,8 +84,8 @@ decode 57–63 → **95–99**。
 --max-context 262144      --kv int8 --kv-resident 32768
 --adapt-every 1           --expert-cache auto
 --pool-workers 15         --vram-reserve-mib 1024   --pcie-frac 0
---conversation-cache-mib 6144 --conversation-cache-slots 8
---conversation-cache-min-tokens 4096 --conversation-cache-min-free-mib 2048
+--conversation-cache-mib 12288 --conversation-cache-slots 12
+--conversation-cache-min-tokens 4096 --conversation-cache-min-free-mib 3072
 --prompt-cache-every 4096 --prompt-cache-tail
 --vision
 ```

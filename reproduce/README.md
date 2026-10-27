@@ -64,6 +64,12 @@ write them without `=`.
 **Trap 6 — user mapping.** `user: "1000:1000"` matters: run as root and the session files in
 `/sessions` end up owned by root, then the next start cannot read them.
 
+**Trap 7 — image input needs Pillow.** Without it the server answers
+`this image format needs Pillow (python -m pip install pillow)` for WebP input and for JPEGs with
+an EXIF orientation other than 1. `python3-pil` is in the Dockerfile. If you add it to a running
+container (`python3 -m pip install --break-system-packages pillow`) it takes effect immediately:
+the import is inside the request handler, not at startup.
+
 ## 4. Verify that what you configured is what is running
 
 Do not trust the config file; read the log.
@@ -113,6 +119,10 @@ Safety, measured: after a restore, an **unrelated** conversation re-reads from s
 it also will not choose a conversation for you.
 
 Session save/restore requires batch to be **off**: with `--batch`, `/slots/0` returns 501.
+
+**Size warning.** With a large conversation cache the snapshot is not small: at 12 slots / 12 GiB
+parked, one autosave file measured **2.28 GB**. `AUTOSAVE_KEEP` should be set accordingly — we run
+2, not 4.
 
 ## 7. Rollback
 

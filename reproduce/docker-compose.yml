@@ -14,7 +14,7 @@ services:
     environment:
       - LD_LIBRARY_PATH=/opt/rocm/lib:/opt/rocm/lib/llvm/lib
       - AUTOSAVE_INTERVAL=900
-      - AUTOSAVE_KEEP=4
+      - AUTOSAVE_KEEP=2
       - AUTOSAVE_RESTORE=1
     volumes:
       - ${STRATA_MODEL_DIR:-./models}:/models:ro
